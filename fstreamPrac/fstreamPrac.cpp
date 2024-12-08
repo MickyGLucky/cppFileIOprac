@@ -84,6 +84,23 @@ The code below reads from a file and prints the contents to the console.*/
 	{
 		std::cout << l << std::endl;
 	}
+
+	std::ofstream copy_file;
+	std::string copy_file_name = "copy_" + file_name;
+	copy_file.open(copy_file_name, std::ios::out);
+	if (copy_file.is_open())
+	{
+		for (std::string l : lines)
+		{
+			copy_file << l << std::endl;
+		}
+		copy_file << "File copied successfully" << std::endl;
+		std::cout << "File copied successfully" << std::endl;
+	}
+	else
+	{
+		std::cout << "Error opening file" << std::endl;
+	}
 	return 0;
 
 }
